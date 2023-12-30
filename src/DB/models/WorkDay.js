@@ -1,16 +1,28 @@
 const { Schema, model } = require('mongoose');
 
 const WorkDaysCreate = new Schema({
-    date: {
+    month: {
         type: String,
         required: true
     },
-    hairstylist: {
+    day: {
+        type: String,
+        required: true
+    },
+    email: {
         type: String,
         required: true
     },
     time: {
         type: Array,
+        required: true
+    },
+    turn: {
+        type: Boolean,
+        required: true
+    },
+    services: {
+        type: Object,
         required: true
     }
 }, {

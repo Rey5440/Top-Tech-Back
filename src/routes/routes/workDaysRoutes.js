@@ -5,8 +5,8 @@ const updateDayHandler = require("../../handlers/workDaysHandlers/updateDayHandl
 
 const router = Router();
 
+router.get('/', getDaysHandler);
 router.post("/create", createDaysHandler);
-router.get('/getdays', getDaysHandler);
 router.put('/updateday', updateDayHandler);
 
 /* router.get('/getHours', getHoursHandler); */

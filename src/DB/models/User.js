@@ -10,8 +10,16 @@ const UserSchema = new Schema ({
         type: String,
         required: true
     },
-    password: {
-        type: String,
+    admin: {
+        type: Boolean,
+        required: true
+    },
+    worker: {
+        type: Boolean,
+        required: true
+    },
+    services: {
+        type: Object,
         required: true
     }
 },{
