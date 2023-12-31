@@ -2,11 +2,11 @@ const { Schema, model } = require('mongoose');
 
 const WorkDaysCreate = new Schema({
     month: {
-        type: String,
+        type: Number,
         required: true
     },
     day: {
-        type: String,
+        type: Number,
         required: true
     },
     email: {

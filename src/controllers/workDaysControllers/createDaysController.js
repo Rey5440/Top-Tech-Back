@@ -1,13 +1,14 @@
 const WorkDay = require('../../DB/models/WorkDay');
 
-const createDaysController = async (month, day, email, time) => {
+const createDaysController = async (month, day, email, time, services) => {
     try {
             const newDay = new WorkDay({
                 month,
                 day,
                 email,
                 time,
-                turn: false
+                turn: false,
+                services
             });
             await newDay.save();
             return newDay;
