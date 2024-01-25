@@ -1,4 +1,4 @@
-const getDaysController = require("../../controllers/workDaysControllers/getDaysControllers");
+const getDaysController = require("../../controllers/workDaysControllers/getDaysController");
 
 
 const getDaysHandler = async (req, res) => {
