@@ -8,10 +8,10 @@ const updateUserController = async (
   try {
     const user = await User.findOne({ email });
     console.log("lo que sale de luser", user);
-    if (newPhoneNumber.length >= 10) {
+    if (newPhoneNumber !== undefined && newPhoneNumber.length >= 10) {
       user.phone = newPhoneNumber;
       await user.save();
-      console.log(user,"lo que guarda en el user");
+      console.log(user, "lo que guarda en el user");
       return user;
     } else if (
       newServicesDuration &&

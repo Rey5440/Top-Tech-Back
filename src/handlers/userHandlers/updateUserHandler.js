@@ -2,7 +2,7 @@ const updateUserController = require("../../controllers/userControllers/updateUs
 
 const updateUserHandler = async (req, res) => {
   const { email, newServicesDuration, newPhoneNumber } = req.body;
-  console.log(newPhoneNumber,"lo que vieen el el handler");
+  console.log(newServicesDuration,"lo que vieen el el handler");
   try {
     const user = await updateUserController(
       email,

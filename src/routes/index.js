@@ -4,7 +4,7 @@ const userRoutes = require("./routes/userRoutes.js"); // trae el modulo userRout
 const daysRoutes = require("./routes/workDaysRoutes.js");
 const servicesRoutes = require("./routes/servicesRoutes.js");
 const scheduleRoutes = require("./routes/scheduleRoutes.js");
-const imagesRoutes = require("./routes/imagesRoutes.js");
+const personalizationRoutes = require("./routes/personalizationRoutes.js");
 
 const router = Router(); // ejecuta Router de express
 
@@ -12,6 +12,6 @@ router.use("/users", userRoutes); //  .use de Router lleva path y callback (prev
 router.use("/workdays", daysRoutes);
 router.use("/services", servicesRoutes);
 router.use("/schedule", scheduleRoutes);
-router.use("/images", imagesRoutes);
+router.use("/personalization", personalizationRoutes);
 
 module.exports = router;
