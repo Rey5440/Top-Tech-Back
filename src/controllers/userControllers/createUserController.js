@@ -1,7 +1,7 @@
 const User = require("../../DB/models/User");
 const Services = require("../../DB/models/Services");
 
-const createUserController = async (name, email) => {
+const createUserController = async (name, email, image) => {
   try {
     const existingUser = await User.findOne({ email });
 
@@ -11,6 +11,7 @@ const createUserController = async (name, email) => {
       const newUser = new User({
         name: name,
         email: email,
+        image: image,
         admin: false,
         worker: false,
         isDelete: false,

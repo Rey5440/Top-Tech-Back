@@ -1,6 +1,8 @@
 const WorkDay = require("../../DB/models/WorkDay");
 
-const createDaysController = async (month, day, email, time, services) => {
+const createDaysController = async (month, day, email, name, image, time, services) => {
+
+  console.log(image, "esta es la imagen")
   try {
     const existing = await WorkDay.find({ month, day, email });
 
@@ -12,6 +14,8 @@ const createDaysController = async (month, day, email, time, services) => {
       month,
       day,
       email,
+      name,
+      image,
       time,
       turn: false,
       services,
