@@ -5,6 +5,7 @@ const daysRoutes = require("./routes/workDaysRoutes.js");
 const servicesRoutes = require("./routes/servicesRoutes.js");
 const scheduleRoutes = require("./routes/scheduleRoutes.js");
 const personalizationRoutes = require("./routes/personalizationRoutes.js");
+const cancelledRoutes = require("./routes/cancelledTurnsRoutes.js");
 
 const router = Router(); // ejecuta Router de express
 
@@ -13,5 +14,6 @@ router.use("/workdays", daysRoutes);
 router.use("/services", servicesRoutes);
 router.use("/schedule", scheduleRoutes);
 router.use("/personalization", personalizationRoutes);
+router.use("/cancelledturns", cancelledRoutes);
 
 module.exports = router;
