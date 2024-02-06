@@ -1,7 +1,7 @@
 const CancelledTurns = require("../../DB/models/CancelledTurns");
 
 const cancelledTurnsController = async (emailWorker, month, day) => {
-    console.log(emailWorker, month, day, "esto me llega al controlador del turnos cancelados")
+
   try {
     const turns = await CancelledTurns.find({ email: emailWorker, month, day});
 

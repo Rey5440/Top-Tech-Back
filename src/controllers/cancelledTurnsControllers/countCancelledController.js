@@ -5,6 +5,7 @@ const countCancelledController = async (emailWorker) => {
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth() + 1;
     const nextMonth = currentMonth === 12 ? 1 : currentMonth + 1;
+    const currentDay = currentDate.getDate()
 
     try {
         const turns = await CancelledTurns.find({ email: emailWorker });
@@ -13,7 +14,7 @@ const countCancelledController = async (emailWorker) => {
         var month2 = [];
 
         turns.forEach(element => {
-            if (element.month === currentMonth) {
+            if (element.month === currentMonth && element.day >= currentDay) {
                 month1.push({ day: element.day, month: element.month });
             }
             if (element.month === nextMonth) {

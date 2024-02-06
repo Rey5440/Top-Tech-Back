@@ -10,6 +10,8 @@ const createTurnHandler = require("../../handlers/workDaysHandlers/createTurnHan
 const deleteDaysHandler = require("../../handlers/workDaysHandlers/deleteDaysHandler.js");
 const cancelTurnHandler = require("../../handlers/workDaysHandlers/cancelTurnHandler.js");
 const adminDeleteDayHandler = require("../../handlers/workDaysHandlers/adminDeleteDayHandler.js");
+const whoIsComingHandler = require("../../handlers/workDaysHandlers/whoIsComingHandler.js");
+const countWorkerHandler = require("../../handlers/workDaysHandlers/countWorkerHandler.js");
 
 const router = Router();
 
@@ -24,6 +26,8 @@ router.post("/myturns", getMyTurnsHandler);
 router.post("/delete", deleteDaysHandler); //recibe dia completo y lo elimina, creando en el modelo de cancelados
 router.post("/cancel", cancelTurnHandler)
 router.post("/admindeleteday", adminDeleteDayHandler)
+router.post("/whoiscoming", whoIsComingHandler)
+router.post("/countworker", countWorkerHandler)
 
 /* router.get('/getHours', getHoursHandler); */
 
