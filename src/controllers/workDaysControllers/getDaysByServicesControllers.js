@@ -18,7 +18,6 @@ const getDaysByServicesController = async (serviceForTurns) => {
         }
       }
     });
-        console.log(days, "esto es lo que sale del controller");
 
     return result;
   } catch (error) {

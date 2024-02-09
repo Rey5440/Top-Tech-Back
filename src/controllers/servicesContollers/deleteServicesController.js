@@ -1,7 +1,8 @@
 const Services = require("../../DB/models/Services");
+const User = require("../../DB/models/User");
 
 const deleteServicesController = async (service) => {
-  console.log(service, " asi llega el service del handler");
+  console.log(service, " así llega el servicio del controlador");
 
   try {
     // Buscar el servicio en la base de datos
@@ -10,6 +11,16 @@ const deleteServicesController = async (service) => {
       // Si el servicio existe, eliminarlo de la propiedad allServices
       existingService.allServices = existingService.allServices.filter(
         (arr) => arr[0] !== service
+      );
+
+      // Eliminar la propiedad del campo services de todos los usuarios
+      await User.updateMany(
+        {},
+        {
+          $unset: {
+            [`services.${service}`]: 1,
+          },
+        }
       );
 
       // Guardar la actualización en la base de datos
@@ -26,13 +37,5 @@ const deleteServicesController = async (service) => {
   }
 };
 
-// Función para comparar dos arrays y verificar si son iguales
-function arraysEqual(arr1, arr2) {
-  if (arr1.length !== arr2.length) return false;
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] !== arr2[i]) return false;
-  }
-  return true;
-}
-
 module.exports = deleteServicesController;
+

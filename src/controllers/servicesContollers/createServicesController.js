@@ -2,15 +2,14 @@ const Services = require("../../DB/models/Services");
 const User = require("../../DB/models/User");
 
 const createServicesController = async (service) => {
+  const lowerCase = [service[0].toLocaleLowerCase()]
   try {
     // Buscar el primer documento en la colección de servicios
     const existingService = await Services.findOne({});
-    console.log(service," asi llega el service del find");
-console.log(existingService," asi llega el Existitnfservice");
     
     if (existingService) {
       const isServiceIncluded = existingService.allServices.some(
-        (arr) => JSON.stringify(arr) === JSON.stringify(service)
+        (arr) => JSON.stringify(arr) === JSON.stringify(lowerCase)
       );
 
       if (isServiceIncluded) {
@@ -21,14 +20,14 @@ console.log(existingService," asi llega el Existitnfservice");
         };
       } else {
         // Si no existe, agregar el nuevo servicio a la propiedad allServices
-        existingService.allServices.push(service);
+        existingService.allServices.push(lowerCase);
 
         // Actualizar el campo services de los usuarios
         await User.updateMany(
           {},
           {
             $set: {
-              [`services.${service}`]: {
+              [`services.${lowerCase}`]: {
                 duration: null,
                 available: false,
               },
@@ -44,7 +43,7 @@ console.log(existingService," asi llega el Existitnfservice");
     } else {
       // Si no existe, crear un nuevo documento con el nuevo servicio
       const newService = new Services({
-        allServices: [service],
+        allServices: [lowerCase],
       });
 
       // Actualizar el campo services de los usuarios
@@ -52,7 +51,7 @@ console.log(existingService," asi llega el Existitnfservice");
         {},
         {
           $set: {
-            [`services.${service}`]: {
+            [`services.${lowerCase}`]: {
               duration: null,
               available: true,
             },
@@ -61,6 +60,7 @@ console.log(existingService," asi llega el Existitnfservice");
       );
 
       // Guardar el nuevo servicio en la base de datos
+
       await newService.save();
 
       return newService;

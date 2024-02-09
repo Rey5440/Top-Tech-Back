@@ -7,8 +7,6 @@ const getDayForTurnsController = async (dayForTurns) => {
 
     const days = await WorkDay.find({ month, day });
 
-    console.log(days)
-
     return days;
   } catch (error) {
     console.error("Error al obtener el día:", error);

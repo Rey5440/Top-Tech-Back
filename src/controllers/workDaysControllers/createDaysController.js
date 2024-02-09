@@ -2,9 +2,11 @@ const WorkDay = require("../../DB/models/WorkDay");
 
 const createDaysController = async (month, day, email, name, image, time, services) => {
 
-  console.log(image, "esta es la imagen")
+  
   try {
     const existing = await WorkDay.find({ month, day, email });
+
+    console.log(existing)
 
     if (existing.length > 0) {
       throw new Error("El día ya existe para el usuario y la fecha proporcionados.");
