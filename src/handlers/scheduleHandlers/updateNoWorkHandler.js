@@ -2,7 +2,6 @@ const updateNoWorkController = require("../../controllers/scheduleControllers/up
 
 const updateNoWorkHandler = async (req, res) => {
   const { noWorkDays } = req.body;
-  console.log(noWorkDays, "pase por handler");
   try {
     const updatedDays = await updateNoWorkController(noWorkDays);
     res.status(200).json(updatedDays);

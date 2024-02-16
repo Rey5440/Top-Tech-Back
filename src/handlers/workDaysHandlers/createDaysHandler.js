@@ -2,7 +2,6 @@ const createDaysController = require("../../controllers/workDaysControllers/crea
 
 const createDaysHandler = async (req, res) => {
   const { month, day, email, name, image, time, services } = req.body; // cola de solicitudes, NO array
-  console.log(month, day, email, name, image, time, services, "en el handler")
   try {
     const newDays = await createDaysController(
       month,

@@ -29,10 +29,8 @@ const deleteDaysController = async (month, day, email) => {
             noNull[noNull.length - 1].fin = (index - 1)
         }
       });
-      console.log(noNull, month, day, email, "esto le pasa al controlador 2")
       const cancelledTurns = await noNullCancelledController(noNull, month, day, email)
     }
-    console.log("salida de deleteDaysController")
     return noNull;
   } catch (error) {
     console.error("Error al eliminar día laboral:", error);

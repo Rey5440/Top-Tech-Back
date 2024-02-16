@@ -2,7 +2,6 @@ const Services = require("../../DB/models/Services");
 const User = require("../../DB/models/User");
 
 const deleteServicesController = async (service) => {
-  console.log(service, " así llega el servicio del controlador");
 
   try {
     // Buscar el servicio en la base de datos

@@ -2,7 +2,6 @@ const updateServicesImgController = require("../../controllers/servicesContoller
 
 const updateServicesImgHandler = async (req, res) => {
   const { servicesWithImg } = req.body;
-  console.log(servicesWithImg, "pase por handler");
   try {
     const updatedservicesImg = await updateServicesImgController(servicesWithImg);
     res.status(200).json(updatedservicesImg);

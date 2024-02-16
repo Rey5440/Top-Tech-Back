@@ -15,7 +15,6 @@ const getNoWorkDaysController = async () => {
 
       // Guardar el nuevo documento en la base de datos
       await newDoc.save();
-      console.log(newDoc);
       // Devolver el objeto noWorkDays del nuevo documento
       return newDoc.noWorkDays;
     }

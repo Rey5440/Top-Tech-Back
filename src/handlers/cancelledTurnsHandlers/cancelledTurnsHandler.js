@@ -2,7 +2,6 @@ const cancelledTurnsController = require("../../controllers/cancelledTurnsContro
 
 const getCancelledForWorkerHandler = async (req, res) => {
   const { emailWorker, month, day  } = req.body;
-  console.log(emailWorker, month, day, "esto me llega al handler del turnos cancelados")
   try {
     const turns = await cancelledTurnsController(emailWorker, month, day);
     res.status(200).json(turns);

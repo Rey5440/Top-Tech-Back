@@ -4,7 +4,6 @@ const deleteUserController = require("../../controllers/userControllers/deleteUs
 
 const deleteUserHandler = async (req, res) => {
   const { email } = req.body;
-  console.log(email)
   try {
     const deleted = await deleteUserController(email);
     res.status(200).json(deleted); //array de usuarios
