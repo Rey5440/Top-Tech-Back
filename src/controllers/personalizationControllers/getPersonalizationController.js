@@ -8,7 +8,7 @@ const getPersonalizationController = async () => {
     } else {
       const newPersonalization = new Personalization({
         allImages: [],
-        allColors: [],
+        allColors: ["white"],
       });
       await newPersonalization.save();
       return newPersonalization;
