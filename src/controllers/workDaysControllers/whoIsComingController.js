@@ -37,7 +37,6 @@ const whoIsComingController = async (emailWorker, month, day) => {
     if (users.length < 1) {
       objTurns.forEach((element) => {
         result.push({
-          email: element.email,
           name: element.email,
           ini: element.ini,
           fin: element.fin,
@@ -57,7 +56,6 @@ const whoIsComingController = async (emailWorker, month, day) => {
           });
         } else {
           result.push({
-            email: element.email,
             name: element.email,
             ini: element.ini,
             fin: element.fin,
