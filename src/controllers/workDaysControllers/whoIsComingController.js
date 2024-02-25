@@ -34,7 +34,16 @@ const whoIsComingController = async (emailWorker, month, day) => {
     });
 
     const users = await User.find({ email: { $in: arrayEmails } });
-
+    if (users.length < 1) {
+      objTurns.forEach((element) => {
+        result.push({
+          email: element.email,
+          name: element.email,
+          ini: element.ini,
+          fin: element.fin,
+        });
+      });
+    }
     objTurns.forEach((element) => {
       users.forEach((user) => {
         if (element.email == user.email) {
