@@ -7,7 +7,7 @@ const updateUserController = async (
 ) => {
   try {
     const user = await User.findOne({ email });
-    if (newPhoneNumber !== undefined && newPhoneNumber.length >= 10) {
+    if (newPhoneNumber !== undefined && newPhoneNumber.length >= 8) {
       user.phone = newPhoneNumber;
       await user.save();
       return user;
