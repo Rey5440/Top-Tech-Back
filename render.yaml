@@ -1,17 +1,29 @@
 services:
-  - name: Top-Tech-Back
-    type: web
-    env: node
-    plan: free
-    buildCommand: npm install && npm run build
-    startCommand: npm start
+  - type: web
+    name: express-app
+    runtime: node
+    repo: https://github.com/Rey5440/Top-Tech-Back
     envVars:
       - key: NODE_ENV
         value: production
-    
+  - type: redis
+    name: redis-db
+    ipAllowList:
+      - source: 0.0.0.0/0
+        description: Permitir conexiones desde cualquier lugar
 databases:
-  - name: mi-base-de-datos
-    type: mongodb
+  - name: mongodb
+    databaseName: mydb
+    user: myuser
+    ipAllowList:
+      - source: 0.0.0.0/0
+        description: Permitir conexiones desde cualquier lugar
+envVarGroups:
+  - name: conc-settings
     envVars:
-      - key: MONGODB_URI
-        fromDatabase: true
+      - key: CONCURRENCY
+        value: 2
+      - key: SECRET
+        generateValue: true
+      - key: USER_PROVIDED_SECRET
+        sync: false
