@@ -7,11 +7,12 @@ services:
       - key: NODE_ENV
         value: production
     plan: auto
-    - startCommand: npm start
+    startCommand: npm start
     buildCommand: npm run build
-    - ipAllowList:
+    ipAllowList:
       - source: 0.0.0.0/0
         description: Permitir conexiones desde cualquier lugar
+
 databases:
   - name: mongodb
     databaseName: mydb
