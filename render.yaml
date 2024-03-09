@@ -7,7 +7,7 @@ services:
       - key: NODE_ENV
         value: production
     plan: free
-    - startCommand: npm start:
+    - startCommand: npm start
     buildCommand: npm run build
     - ipAllowList:
       - source: 0.0.0.0/0
