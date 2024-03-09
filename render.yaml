@@ -1,7 +1,7 @@
 services:
-  - name: express-app
+  - name: Top-Tech-Back
     env: node
-    plan: auto
+    plan: free
     buildCommand: npm install && npm run build
     startCommand: npm start
     envVars:
