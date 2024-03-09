@@ -20,7 +20,7 @@ databases:
         description: Permitir conexiones desde cualquier lugar
 envVarGroups:
   - name: conc-settings
-    envVars:
+  - envVars:
       - key: CONCURRENCY
         value: 2
       - key: SECRET
