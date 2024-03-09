@@ -7,10 +7,8 @@ services:
       - key: NODE_ENV
         value: production
     plan: free
-    buildCommand: npm install && npm run build
+    buildCommand: npm run build
     startCommand: npm start
-  - type: redis
-    name: redis-db
     ipAllowList:
       - source: 0.0.0.0/0
         description: Permitir conexiones desde cualquier lugar
