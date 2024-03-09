@@ -7,9 +7,9 @@ services:
       - key: NODE_ENV
         value: production
     plan: free
-    startCommand: npm start:
+    - startCommand: npm start:
     buildCommand: npm run build
-    ipAllowList:
+    - ipAllowList:
       - source: 0.0.0.0/0
         description: Permitir conexiones desde cualquier lugar
 databases:
