@@ -1,0 +1,15 @@
+services:
+  - name: express-app
+    env: node
+    plan: auto
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+databases:
+  - name: mi-base-de-datos
+    type: mongodb
+    envVars:
+      - key: MONGODB_URI
+        fromDatabase: true
