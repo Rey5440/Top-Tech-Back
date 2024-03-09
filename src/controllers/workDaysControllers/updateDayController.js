@@ -5,7 +5,7 @@ const updateDayController = async (date, hairstylist, time) => {
         var existingDay = await WorkDay.findOne({ hairstylist, date });
         time.forEach(element => {
             if (element >= 0 && element < 1441) {
-                if(existingDay.time[element] = null){
+                if(existingDay.time[element] == null){
                 existingDay.time[element] = 'free';
                 }
             }

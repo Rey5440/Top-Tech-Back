@@ -1,7 +1,9 @@
-require('dotenv').config();
-const server = require('./src/app.js')
-require('./src/DB/db.js')
+require("dotenv").config();
+const server = require("./src/app.js");
+require("./src/DB/db.js");
 
-  server.listen(3001, () => {
-    console.log("Server listening on 3001"); 
+const PORT = process.env.PORT;
+
+server.listen(PORT, () => {
+  console.log(`Server listening on port: ${PORT}`);
 });
