@@ -1,6 +1,6 @@
 services:
-  - type: web
   - name: Top-Tech-Back
+    type: web
     env: node
     plan: free
     buildCommand: npm install && npm run build
